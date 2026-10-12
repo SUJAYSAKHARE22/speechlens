@@ -1,0 +1,13 @@
+{
+ "title": "Single flaw: trailing off",
+ "description": "Energy fades away at the end of a sentence.",
+ "reference_id": "gettysburg_A",
+ "ground_truth": [
+  {
+   "type": "trail_off",
+   "start": 32.5529,
+   "end": 34.5651,
+   "severity": 0.6
+  }
+ ]
+}

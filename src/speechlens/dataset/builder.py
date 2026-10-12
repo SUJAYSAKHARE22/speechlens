@@ -18,7 +18,7 @@ from speechlens.audio import load_audio, ms_to_samples, pcm16_sha256, save_audio
 from speechlens.config import Config, LevelSpec
 from speechlens.dataset.dsp import RoomTone
 from speechlens.dataset.flaws import BuildContext, FlawRequest, FlawType, inject
-from speechlens.dataset.planner import RegionPlanner
+from speechlens.dataset.planner import RegionPlanner, word_voiced_fractions
 from speechlens.dataset.timeline import Timeline
 from speechlens.schema import Alignment, FlawLabel, VariantLabel
 from speechlens.text import tokenize
@@ -88,9 +88,13 @@ class DatasetBuilder:
 
     # -- planning ---------------------------------------------------------------------
     def _plan_level(
-        self, base: BaseSpeech, spec: LevelSpec, rng: np.random.Generator
+        self,
+        base: BaseSpeech,
+        spec: LevelSpec,
+        rng: np.random.Generator,
+        voiced: list[float],
     ) -> list[FlawRequest]:
-        planner = RegionPlanner(base.alignment.words, rng)
+        planner = RegionPlanner(base.alignment.words, rng, voiced)
         pool = [FlawType(t) for t in (spec.types or [f.value for f in FlawType])]
         order = rng.permutation(len(pool))
         requests: list[FlawRequest] = []
@@ -189,6 +193,7 @@ class DatasetBuilder:
             tone=RoomTone.from_audio(base.audio, base.sr),
             context=ms_to_samples(self.cfg.audio.context_ms, base.sr),
         )
+        voiced = word_voiced_fractions(base.audio, base.sr, base.alignment.words, ctx.f0)
         (out / base.id).mkdir(parents=True, exist_ok=True)
         (out / base.id / "transcript.txt").write_text(base.transcript + "\n", encoding="utf-8")
 
@@ -196,7 +201,11 @@ class DatasetBuilder:
         for level, spec in sorted(ds.levels.items()):
             vid = f"L{level}_{spec.name}"
             seed = derive_seed(ds.seed, base.id, vid)
-            reqs = self._plan_level(base, spec, np.random.default_rng(seed)) if spec.n_flaws else []
+            reqs = (
+                self._plan_level(base, spec, np.random.default_rng(seed), voiced)
+                if spec.n_flaws
+                else []
+            )
             labels.append(
                 self._render_variant(
                     base,

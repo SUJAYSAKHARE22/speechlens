@@ -1,0 +1,13 @@
+{
+ "title": "Single flaw: rushing",
+ "description": "One phrase delivered about 1.5x too fast.",
+ "reference_id": "gettysburg_A",
+ "ground_truth": [
+  {
+   "type": "rush",
+   "start": 30.3801,
+   "end": 32.5347,
+   "severity": 0.6
+  }
+ ]
+}

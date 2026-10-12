@@ -1,0 +1,13 @@
+{
+ "title": "Single flaw: overlong pause",
+ "description": "A two-second hesitation at a comma.",
+ "reference_id": "gettysburg_A",
+ "ground_truth": [
+  {
+   "type": "overlong_pause",
+   "start": 63.0522,
+   "end": 65.8948,
+   "severity": 0.6
+  }
+ ]
+}

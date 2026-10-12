@@ -1,0 +1,244 @@
+{
+ "n_recordings": 16,
+ "detection": {
+  "iou>=0.3": {
+   "precision": 1.0,
+   "recall": 0.821,
+   "f1": 0.902
+  },
+  "iou>=0.5": {
+   "precision": 1.0,
+   "recall": 0.821,
+   "f1": 0.902
+  }
+ },
+ "matched_mean_iou": 0.91,
+ "type_accuracy_among_matched": 1.0,
+ "family_accuracy_among_matched": 1.0,
+ "median_start_error_ms": 12.0,
+ "median_end_error_ms": 18.1,
+ "recall_by_type": {
+  "drag": 0.8,
+  "misplaced_pause": 1.0,
+  "missing_pause": 1.0,
+  "monotone": 1.0,
+  "mumble": 0.5,
+  "overlong_pause": 1.0,
+  "rush": 0.6,
+  "trail_off": 1.0,
+  "uptalk": 0.5,
+  "volume_collapse": 1.0
+ },
+ "recall_by_severity": {
+  "high (>=0.7)": 1.0,
+  "low (<0.4)": 0.0,
+  "mid (0.4-0.7)": 0.786
+ },
+ "ideal_recordings": {
+  "n": 1,
+  "false_regions_per_recording": 0.0,
+  "mean_score": 92.9
+ },
+ "score_validation": {
+  "mean_score_by_level": {
+   "0": 92.9,
+   "1": 89.7,
+   "2": 87.2,
+   "3": 83.7,
+   "4": 72.3,
+   "5": 54.0
+  },
+  "spearman_level_vs_score": -1.0,
+  "pairwise_ordering_accuracy": 1.0,
+  "category_attribution_accuracy": 0.9
+ },
+ "per_recording": [
+  {
+   "id": "B/L0_ideal",
+   "level": 0,
+   "kind": "ideal",
+   "overall": 92.9,
+   "n_gt": 0,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "B/L1_near_perfect",
+   "level": 1,
+   "kind": "ladder",
+   "overall": 89.7,
+   "n_gt": 1,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "B/L2_minor_slips",
+   "level": 2,
+   "kind": "ladder",
+   "overall": 87.2,
+   "n_gt": 2,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "B/L3_mediocre",
+   "level": 3,
+   "kind": "ladder",
+   "overall": 83.7,
+   "n_gt": 3,
+   "n_pred": 3,
+   "pred_types": [
+    "overlong_pause",
+    "missing_pause",
+    "drag"
+   ]
+  },
+  {
+   "id": "B/L4_poor",
+   "level": 4,
+   "kind": "ladder",
+   "overall": 72.3,
+   "n_gt": 5,
+   "n_pred": 5,
+   "pred_types": [
+    "drag",
+    "uptalk",
+    "volume_collapse",
+    "rush",
+    "missing_pause"
+   ]
+  },
+  {
+   "id": "B/L5_botched",
+   "level": 5,
+   "kind": "ladder",
+   "overall": 54.0,
+   "n_gt": 7,
+   "n_pred": 7,
+   "pred_types": [
+    "volume_collapse",
+    "drag",
+    "mumble",
+    "monotone",
+    "rush",
+    "misplaced_pause",
+    "trail_off"
+   ]
+  },
+  {
+   "id": "B/S_drag_60",
+   "level": null,
+   "kind": "single",
+   "overall": 90.9,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "drag"
+   ]
+  },
+  {
+   "id": "B/S_misplaced_pause_60",
+   "level": null,
+   "kind": "single",
+   "overall": 86.0,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "misplaced_pause"
+   ]
+  },
+  {
+   "id": "B/S_missing_pause_60",
+   "level": null,
+   "kind": "single",
+   "overall": 92.4,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "missing_pause"
+   ]
+  },
+  {
+   "id": "B/S_monotone_60",
+   "level": null,
+   "kind": "single",
+   "overall": 85.5,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "monotone"
+   ]
+  },
+  {
+   "id": "B/S_mumble_60",
+   "level": null,
+   "kind": "single",
+   "overall": 92.8,
+   "n_gt": 1,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "B/S_overlong_pause_60",
+   "level": null,
+   "kind": "single",
+   "overall": 86.1,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "overlong_pause"
+   ]
+  },
+  {
+   "id": "B/S_rush_60",
+   "level": null,
+   "kind": "single",
+   "overall": 88.1,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "rush"
+   ]
+  },
+  {
+   "id": "B/S_trail_off_60",
+   "level": null,
+   "kind": "single",
+   "overall": 91.3,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "trail_off"
+   ]
+  },
+  {
+   "id": "B/S_uptalk_60",
+   "level": null,
+   "kind": "single",
+   "overall": 91.1,
+   "n_gt": 1,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "B/S_volume_collapse_60",
+   "level": null,
+   "kind": "single",
+   "overall": 89.5,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "volume_collapse"
+   ]
+  }
+ ],
+ "tolerance_used": {
+  "pace_sigma": 0.2,
+  "pause_sigma_abs": 0.12,
+  "pause_sigma_rel": 0.25,
+  "pitch_sigma": 0.25,
+  "terminal_sigma": 1.5,
+  "energy_sigma": 3.524,
+  "clarity_sigma": 3.0
+ }
+}

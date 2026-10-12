@@ -48,3 +48,20 @@ def boundary_kind(punct_after: str) -> BoundaryKind:
     if any(c in _CLAUSE for c in punct_after):
         return "clause"
     return "none"
+
+
+_VOWEL_GROUP = re.compile(r"[aeiouy]+")
+
+
+def count_syllables(word: str) -> int:
+    """Heuristic English syllable count (vowel groups, silent final 'e'); always >= 1.
+
+    Used only for human-readable speech-rate figures; comparisons use word durations.
+    """
+    w = re.sub(r"[^a-z]", "", word.lower())
+    if not w:
+        return 1
+    n = len(_VOWEL_GROUP.findall(w))
+    if w.endswith("e") and not w.endswith(("le", "ee", "ye")) and n > 1:
+        n -= 1
+    return max(n, 1)

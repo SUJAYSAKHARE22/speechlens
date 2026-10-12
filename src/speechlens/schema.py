@@ -36,6 +36,7 @@ class Alignment(BaseModel):
     sample_rate: int
     duration: float
     aligner: str = "unknown"
+    diagnostics: dict[str, float] = Field(default_factory=dict)
 
     @model_validator(mode="after")
     def _check_order(self) -> Alignment:

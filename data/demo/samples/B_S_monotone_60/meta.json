@@ -1,0 +1,13 @@
+{
+ "title": "Single flaw: monotone",
+ "description": "Pitch range flattened over a long phrase.",
+ "reference_id": "gettysburg_A",
+ "ground_truth": [
+  {
+   "type": "monotone",
+   "start": 59.5041,
+   "end": 64.2947,
+   "severity": 0.6
+  }
+ ]
+}

@@ -54,9 +54,48 @@ class DatasetConfig(BaseModel):
     audio_format: str = Field("flac", pattern="^(flac|wav)$")
 
 
+class Tolerance(BaseModel):
+    """Natural between-speaker variation per metric (the scale of a z-score).
+
+    Deviations are only flagged when they exceed several multiples of this normal variation.
+    Defaults are deliberately conservative; ``speechlens calibrate`` can only widen them.
+    """
+
+    pace_sigma: float = Field(0.20, description="log2 duration ratio (~15 %).")
+    pause_sigma_abs: float = Field(0.12, description="seconds.")
+    pause_sigma_rel: float = Field(0.25, description="fraction of the expected pause.")
+    pitch_sigma: float = Field(0.25, description="log2 ratio of windowed F0 std.")
+    terminal_sigma: float = Field(1.5, description="semitones.")
+    energy_sigma: float = Field(3.0, description="dB.")
+    clarity_sigma: float = Field(3.0, description="dB of high-frequency share.")
+
+
+class DetectionConfig(BaseModel):
+    z_threshold: float = 2.5
+    pause_min_excess_s: float = 0.25
+    missing_pause_ratio: float = 0.5
+    missing_pause_min_expected_s: float = 0.15
+    missing_pause_min_loss_s: float = 0.15
+    min_words_pace: int = 3
+    min_words_pitch: int = 5
+    min_words_energy: int = 3
+    min_words_clarity: int = 2
+    max_gap_words: int = 1
+    trail_window: int = 5
+    pitch_half_window: int = 2
+    z_cap: float = 6.0
+    score_gain: float = 12.0
+
+
+class AnalysisConfig(BaseModel):
+    tolerance: Tolerance = Field(default_factory=Tolerance)
+    detection: DetectionConfig = Field(default_factory=DetectionConfig)
+
+
 class Config(BaseModel):
     audio: AudioConfig = Field(default_factory=AudioConfig)
     dataset: DatasetConfig = Field(default_factory=DatasetConfig)
+    analysis: AnalysisConfig = Field(default_factory=AnalysisConfig)
 
 
 def load_config(path: str | Path | None = None) -> Config:

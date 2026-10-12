@@ -44,3 +44,11 @@ def test_planner_is_deterministic(alignment):
     a = RegionPlanner(alignment.words, np.random.default_rng(5)).plan(FlawType.RUSH, 0.4)
     b = RegionPlanner(alignment.words, np.random.default_rng(5)).plan(FlawType.RUSH, 0.4)
     assert a == b
+
+
+def test_uptalk_is_only_planned_on_voiced_words(alignment, voiced):
+    for seed in range(12):
+        req = RegionPlanner(alignment.words, np.random.default_rng(seed), voiced).plan(
+            FlawType.UPTALK, 0.7
+        )
+        assert req is not None and voiced[req.word_end] >= 0.6

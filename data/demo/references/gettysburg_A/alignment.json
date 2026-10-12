@@ -1,0 +1,1144 @@
+{
+ "words": [
+  {
+   "index": 0,
+   "text": "Four",
+   "start": 0.3,
+   "end": 0.7028125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 1,
+   "text": "score",
+   "start": 0.7328125,
+   "end": 1.1693125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 2,
+   "text": "and",
+   "start": 1.1993125,
+   "end": 1.5768125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 3,
+   "text": "seven",
+   "start": 1.6068125,
+   "end": 2.0875625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 4,
+   "text": "years",
+   "start": 2.1175625,
+   "end": 2.6295625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 5,
+   "text": "ago",
+   "start": 2.6595625,
+   "end": 3.1200625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 6,
+   "text": "our",
+   "start": 3.1500625,
+   "end": 3.482625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 7,
+   "text": "fathers",
+   "start": 3.512625,
+   "end": 4.0679375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 8,
+   "text": "brought",
+   "start": 4.0979375,
+   "end": 4.4485625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 9,
+   "text": "forth",
+   "start": 4.4785625,
+   "end": 4.9036875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 10,
+   "text": "on",
+   "start": 4.9336875,
+   "end": 5.2930625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 11,
+   "text": "this",
+   "start": 5.3230625,
+   "end": 5.7011875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 12,
+   "text": "continent",
+   "start": 5.7311875,
+   "end": 6.3936875,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 13,
+   "text": "a",
+   "start": 6.7436875,
+   "end": 7.0294375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 14,
+   "text": "new",
+   "start": 7.0594375,
+   "end": 7.4125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 15,
+   "text": "nation",
+   "start": 7.4425,
+   "end": 7.9624375,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 16,
+   "text": "conceived",
+   "start": 8.3124375,
+   "end": 8.9355625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 17,
+   "text": "in",
+   "start": 8.9655625,
+   "end": 9.2729375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 18,
+   "text": "Liberty",
+   "start": 9.3029375,
+   "end": 9.80275,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 19,
+   "text": "and",
+   "start": 10.15275,
+   "end": 10.5303125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 20,
+   "text": "dedicated",
+   "start": 10.5603125,
+   "end": 11.250125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 21,
+   "text": "to",
+   "start": 11.280125,
+   "end": 11.5814375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 22,
+   "text": "the",
+   "start": 11.6114375,
+   "end": 11.8868125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 23,
+   "text": "proposition",
+   "start": 11.9168125,
+   "end": 12.685375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 24,
+   "text": "that",
+   "start": 12.715375,
+   "end": 13.101125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 25,
+   "text": "all",
+   "start": 13.131125,
+   "end": 13.461875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 26,
+   "text": "men",
+   "start": 13.491875,
+   "end": 13.911875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 27,
+   "text": "are",
+   "start": 13.941875,
+   "end": 14.278125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 28,
+   "text": "created",
+   "start": 14.308125,
+   "end": 14.8833125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 29,
+   "text": "equal",
+   "start": 14.9133125,
+   "end": 15.3600625,
+   "punct_after": ".",
+   "confidence": null
+  },
+  {
+   "index": 30,
+   "text": "Now",
+   "start": 16.0600625,
+   "end": 16.46775,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 31,
+   "text": "we",
+   "start": 16.49775,
+   "end": 16.8455,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 32,
+   "text": "are",
+   "start": 16.8755,
+   "end": 17.21575,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 33,
+   "text": "engaged",
+   "start": 17.24575,
+   "end": 17.8786875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 34,
+   "text": "in",
+   "start": 17.9086875,
+   "end": 18.2258125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 35,
+   "text": "a",
+   "start": 18.2558125,
+   "end": 18.5415625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 36,
+   "text": "great",
+   "start": 18.5715625,
+   "end": 18.9305625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 37,
+   "text": "civil",
+   "start": 18.9605625,
+   "end": 19.38625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 38,
+   "text": "war",
+   "start": 19.41625,
+   "end": 19.8225625,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 39,
+   "text": "testing",
+   "start": 20.1725625,
+   "end": 20.6850625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 40,
+   "text": "whether",
+   "start": 20.7150625,
+   "end": 21.1484375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 41,
+   "text": "that",
+   "start": 21.1784375,
+   "end": 21.5641875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 42,
+   "text": "nation",
+   "start": 21.5941875,
+   "end": 22.113,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 43,
+   "text": "or",
+   "start": 22.463,
+   "end": 22.7715625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 44,
+   "text": "any",
+   "start": 22.8015625,
+   "end": 23.1115625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 45,
+   "text": "nation",
+   "start": 23.1415625,
+   "end": 23.6615,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 46,
+   "text": "so",
+   "start": 23.6915,
+   "end": 24.0663125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 47,
+   "text": "conceived",
+   "start": 24.0963125,
+   "end": 24.71725,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 48,
+   "text": "and",
+   "start": 24.74725,
+   "end": 25.1275625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 49,
+   "text": "so",
+   "start": 25.1575625,
+   "end": 25.5438125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 50,
+   "text": "dedicated",
+   "start": 25.5738125,
+   "end": 26.26775,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 51,
+   "text": "can",
+   "start": 26.61775,
+   "end": 27.0089375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 52,
+   "text": "long",
+   "start": 27.0389375,
+   "end": 27.524375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 53,
+   "text": "endure",
+   "start": 27.554375,
+   "end": 28.0555625,
+   "punct_after": ".",
+   "confidence": null
+  },
+  {
+   "index": 54,
+   "text": "We",
+   "start": 28.7555625,
+   "end": 29.0980625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 55,
+   "text": "are",
+   "start": 29.1280625,
+   "end": 29.473625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 56,
+   "text": "met",
+   "start": 29.503625,
+   "end": 29.8779375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 57,
+   "text": "on",
+   "start": 29.9079375,
+   "end": 30.2619375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 58,
+   "text": "a",
+   "start": 30.2919375,
+   "end": 30.5821875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 59,
+   "text": "great",
+   "start": 30.6121875,
+   "end": 30.965875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 60,
+   "text": "battle-field",
+   "start": 30.995875,
+   "end": 31.759,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 61,
+   "text": "of",
+   "start": 31.789,
+   "end": 32.1134375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 62,
+   "text": "that",
+   "start": 32.1434375,
+   "end": 32.5291875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 63,
+   "text": "war",
+   "start": 32.5591875,
+   "end": 32.9603125,
+   "punct_after": ".",
+   "confidence": null
+  },
+  {
+   "index": 64,
+   "text": "We",
+   "start": 33.6603125,
+   "end": 34.007,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 65,
+   "text": "have",
+   "start": 34.037,
+   "end": 34.4704375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 66,
+   "text": "come",
+   "start": 34.5004375,
+   "end": 34.8760625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 67,
+   "text": "to",
+   "start": 34.9060625,
+   "end": 35.196625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 68,
+   "text": "dedicate",
+   "start": 35.226625,
+   "end": 35.8003125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 69,
+   "text": "a",
+   "start": 35.8303125,
+   "end": 36.1160625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 70,
+   "text": "portion",
+   "start": 36.1460625,
+   "end": 36.6468125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 71,
+   "text": "of",
+   "start": 36.6768125,
+   "end": 37.001625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 72,
+   "text": "that",
+   "start": 37.031625,
+   "end": 37.4244375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 73,
+   "text": "field",
+   "start": 37.4544375,
+   "end": 37.940125,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 74,
+   "text": "as",
+   "start": 38.290125,
+   "end": 38.675125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 75,
+   "text": "a",
+   "start": 38.705125,
+   "end": 39.0018125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 76,
+   "text": "final",
+   "start": 39.0318125,
+   "end": 39.46675,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 77,
+   "text": "resting",
+   "start": 39.49675,
+   "end": 40.031875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 78,
+   "text": "place",
+   "start": 40.061875,
+   "end": 40.4896875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 79,
+   "text": "for",
+   "start": 40.5196875,
+   "end": 40.9101875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 80,
+   "text": "those",
+   "start": 40.9401875,
+   "end": 41.4375625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 81,
+   "text": "who",
+   "start": 41.4675625,
+   "end": 41.7951875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 82,
+   "text": "here",
+   "start": 41.8251875,
+   "end": 42.23175,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 83,
+   "text": "gave",
+   "start": 42.26175,
+   "end": 42.6726875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 84,
+   "text": "their",
+   "start": 42.7026875,
+   "end": 43.1234375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 85,
+   "text": "lives",
+   "start": 43.1534375,
+   "end": 43.678375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 86,
+   "text": "that",
+   "start": 43.708375,
+   "end": 44.098875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 87,
+   "text": "that",
+   "start": 44.128875,
+   "end": 44.5216875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 88,
+   "text": "nation",
+   "start": 44.5516875,
+   "end": 45.07725,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 89,
+   "text": "might",
+   "start": 45.10725,
+   "end": 45.5055625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 90,
+   "text": "live",
+   "start": 45.5355625,
+   "end": 45.999625,
+   "punct_after": ".",
+   "confidence": null
+  },
+  {
+   "index": 91,
+   "text": "It",
+   "start": 46.699625,
+   "end": 46.966125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 92,
+   "text": "is",
+   "start": 46.996125,
+   "end": 47.3324375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 93,
+   "text": "altogether",
+   "start": 47.3624375,
+   "end": 48.0840625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 94,
+   "text": "fitting",
+   "start": 48.1140625,
+   "end": 48.568625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 95,
+   "text": "and",
+   "start": 48.598625,
+   "end": 48.979,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 96,
+   "text": "proper",
+   "start": 49.009,
+   "end": 49.46425,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 97,
+   "text": "that",
+   "start": 49.49425,
+   "end": 49.8776875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 98,
+   "text": "we",
+   "start": 49.9076875,
+   "end": 50.2484375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 99,
+   "text": "should",
+   "start": 50.2784375,
+   "end": 50.6460625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 100,
+   "text": "do",
+   "start": 50.6760625,
+   "end": 50.9623125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 101,
+   "text": "this",
+   "start": 50.9923125,
+   "end": 51.3673125,
+   "punct_after": ".",
+   "confidence": null
+  },
+  {
+   "index": 102,
+   "text": "But",
+   "start": 52.0673125,
+   "end": 52.3846875,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 103,
+   "text": "in",
+   "start": 52.7346875,
+   "end": 53.0403125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 104,
+   "text": "a",
+   "start": 53.0703125,
+   "end": 53.3560625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 105,
+   "text": "larger",
+   "start": 53.3860625,
+   "end": 53.883875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 106,
+   "text": "sense",
+   "start": 53.913875,
+   "end": 54.3909375,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 107,
+   "text": "we",
+   "start": 54.7409375,
+   "end": 55.0809375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 108,
+   "text": "can",
+   "start": 55.1109375,
+   "end": 55.5039375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 109,
+   "text": "not",
+   "start": 55.5339375,
+   "end": 55.9406875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 110,
+   "text": "dedicate",
+   "start": 55.9706875,
+   "end": 56.5516875,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 111,
+   "text": "we",
+   "start": 56.9016875,
+   "end": 57.2416875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 112,
+   "text": "can",
+   "start": 57.2716875,
+   "end": 57.662875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 113,
+   "text": "not",
+   "start": 57.692875,
+   "end": 58.099625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 114,
+   "text": "consecrate",
+   "start": 58.129625,
+   "end": 58.89675,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 115,
+   "text": "we",
+   "start": 59.24675,
+   "end": 59.5924375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 116,
+   "text": "can",
+   "start": 59.6224375,
+   "end": 60.0244375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 117,
+   "text": "not",
+   "start": 60.0544375,
+   "end": 60.4540625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 118,
+   "text": "hallow",
+   "start": 60.4840625,
+   "end": 60.901625,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 119,
+   "text": "this",
+   "start": 61.251625,
+   "end": 61.6319375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 120,
+   "text": "ground",
+   "start": 61.6619375,
+   "end": 62.1070625,
+   "punct_after": ".",
+   "confidence": null
+  },
+  {
+   "index": 121,
+   "text": "The",
+   "start": 62.8070625,
+   "end": 63.07675,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 122,
+   "text": "brave",
+   "start": 63.10675,
+   "end": 63.52325,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 123,
+   "text": "men",
+   "start": 63.55325,
+   "end": 63.978875,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 124,
+   "text": "living",
+   "start": 64.328875,
+   "end": 64.8015,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 125,
+   "text": "and",
+   "start": 64.8315,
+   "end": 65.211875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 126,
+   "text": "dead",
+   "start": 65.241875,
+   "end": 65.5775,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 127,
+   "text": "who",
+   "start": 65.9275,
+   "end": 66.2595625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 128,
+   "text": "struggled",
+   "start": 66.2895625,
+   "end": 66.8676875,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 129,
+   "text": "here",
+   "start": 66.8976875,
+   "end": 67.3079375,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 130,
+   "text": "have",
+   "start": 67.6579375,
+   "end": 68.097375,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 131,
+   "text": "consecrated",
+   "start": 68.127375,
+   "end": 69.016625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 132,
+   "text": "it",
+   "start": 69.046625,
+   "end": 69.317125,
+   "punct_after": ",",
+   "confidence": null
+  },
+  {
+   "index": 133,
+   "text": "far",
+   "start": 69.667125,
+   "end": 70.0908125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 134,
+   "text": "above",
+   "start": 70.1208125,
+   "end": 70.6165,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 135,
+   "text": "our",
+   "start": 70.6465,
+   "end": 70.97825,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 136,
+   "text": "poor",
+   "start": 71.00825,
+   "end": 71.350625,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 137,
+   "text": "power",
+   "start": 71.380625,
+   "end": 71.7368125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 138,
+   "text": "to",
+   "start": 71.7668125,
+   "end": 72.068125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 139,
+   "text": "add",
+   "start": 72.098125,
+   "end": 72.434,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 140,
+   "text": "or",
+   "start": 72.464,
+   "end": 72.774125,
+   "punct_after": "",
+   "confidence": null
+  },
+  {
+   "index": 141,
+   "text": "detract",
+   "start": 72.804125,
+   "end": 73.407375,
+   "punct_after": ".",
+   "confidence": null
+  }
+ ],
+ "sample_rate": 16000,
+ "duration": 73.807375,
+ "aligner": "espeak",
+ "diagnostics": {}
+}

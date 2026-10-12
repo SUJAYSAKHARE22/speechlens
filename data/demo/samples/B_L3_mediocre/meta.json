@@ -1,0 +1,25 @@
+{
+ "title": "Mediocre delivery",
+ "description": "Three injected flaws of moderate severity.",
+ "reference_id": "gettysburg_A",
+ "ground_truth": [
+  {
+   "type": "overlong_pause",
+   "start": 29.0282,
+   "end": 32.2078,
+   "severity": 0.536
+  },
+  {
+   "type": "missing_pause",
+   "start": 54.8123,
+   "end": 55.7968,
+   "severity": 0.624
+  },
+  {
+   "type": "drag",
+   "start": 64.8714,
+   "end": 69.2429,
+   "severity": 0.518
+  }
+ ]
+}

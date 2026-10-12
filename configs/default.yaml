@@ -1,0 +1,86 @@
+# SpeechLens default configuration (every value shown is the built-in default).
+# Copy, edit, and pass with --config. Anything omitted falls back to the default.
+
+audio:
+  sample_rate: 16000
+  snap_window_ms: 25.0
+  edge_fade_ms: 3.0
+  context_ms: 150.0
+dataset:
+  dataset_version: 0.1.0
+  seed: 1337
+  levels:
+    '0':
+      name: ideal
+      n_flaws: 0
+      severity:
+      - 0.0
+      - 0.0
+      types: null
+    '1':
+      name: near_perfect
+      n_flaws: 1
+      severity:
+      - 0.2
+      - 0.3
+      types:
+      - rush
+      - drag
+      - trail_off
+      - missing_pause
+      - uptalk
+    '2':
+      name: minor_slips
+      n_flaws: 2
+      severity:
+      - 0.3
+      - 0.5
+      types: null
+    '3':
+      name: mediocre
+      n_flaws: 3
+      severity:
+      - 0.5
+      - 0.7
+      types: null
+    '4':
+      name: poor
+      n_flaws: 5
+      severity:
+      - 0.7
+      - 0.9
+      types: null
+    '5':
+      name: botched
+      n_flaws: 7
+      severity:
+      - 0.9
+      - 1.0
+      types: null
+  single_flaw_severities:
+  - 0.6
+  audio_format: flac
+analysis:
+  tolerance:
+    pace_sigma: 0.2
+    pause_sigma_abs: 0.12
+    pause_sigma_rel: 0.25
+    pitch_sigma: 0.25
+    terminal_sigma: 1.5
+    energy_sigma: 3.0
+    clarity_sigma: 3.0
+  detection:
+    z_threshold: 2.5
+    pause_min_excess_s: 0.25
+    missing_pause_ratio: 0.5
+    missing_pause_min_expected_s: 0.15
+    missing_pause_min_loss_s: 0.15
+    min_words_pace: 3
+    min_words_pitch: 5
+    min_words_energy: 3
+    min_words_clarity: 2
+    max_gap_words: 1
+    trail_window: 5
+    pitch_half_window: 2
+    z_cap: 6.0
+    score_gain: 12.0

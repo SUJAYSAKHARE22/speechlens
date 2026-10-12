@@ -1,0 +1,49 @@
+{
+ "title": "Botched delivery",
+ "description": "Seven injected flaws of high severity across pace, pauses, pitch, volume and clarity.",
+ "reference_id": "gettysburg_A",
+ "ground_truth": [
+  {
+   "type": "volume_collapse",
+   "start": 25.4571,
+   "end": 28.5098,
+   "severity": 0.909
+  },
+  {
+   "type": "drag",
+   "start": 31.8217,
+   "end": 36.2117,
+   "severity": 0.914
+  },
+  {
+   "type": "mumble",
+   "start": 42.6887,
+   "end": 44.1009,
+   "severity": 0.9
+  },
+  {
+   "type": "monotone",
+   "start": 59.4168,
+   "end": 65.1126,
+   "severity": 0.953
+  },
+  {
+   "type": "rush",
+   "start": 66.02,
+   "end": 68.5369,
+   "severity": 0.935
+  },
+  {
+   "type": "misplaced_pause",
+   "start": 70.4611,
+   "end": 73.2333,
+   "severity": 0.961
+  },
+  {
+   "type": "trail_off",
+   "start": 76.131,
+   "end": 77.4261,
+   "severity": 0.954
+  }
+ ]
+}

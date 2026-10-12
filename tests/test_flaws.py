@@ -12,8 +12,8 @@ from speechlens.dataset.timeline import Timeline
 from tests.conftest import SR
 
 
-def _run(source, alignment, ctx, ftype, severity, seed=0):
-    req = RegionPlanner(alignment.words, np.random.default_rng(seed)).plan(ftype, severity)
+def _run(source, alignment, ctx, ftype, severity, seed=0, voiced=None):
+    req = RegionPlanner(alignment.words, np.random.default_rng(seed), voiced).plan(ftype, severity)
     assert req is not None
     tl = Timeline.from_alignment(source, SR, alignment)
     base = Timeline.from_alignment(source, SR, alignment)
@@ -132,8 +132,9 @@ def test_mumble_removes_high_frequency_energy(source, alignment, ctx):
     )
 
 
-def test_uptalk_raises_terminal_pitch(source, alignment, ctx):
-    req, tl, base, ap, r = _run(source, alignment, ctx, FlawType.UPTALK, 0.9)
+def test_uptalk_raises_terminal_pitch(source, alignment, ctx, voiced):
+    req, tl, base, ap, r = _run(source, alignment, ctx, FlawType.UPTALK, 0.9, voiced=voiced)
+    assert voiced[req.word_end] >= 0.6  # the planner only picks words that can carry a rise
 
     def tail_st(x):
         _, f = f0_contour(x, SR, ctx.f0.floor, ctx.f0.ceiling)

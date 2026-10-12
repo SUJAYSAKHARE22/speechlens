@@ -1,0 +1,247 @@
+{
+ "n_recordings": 16,
+ "detection": {
+  "iou>=0.3": {
+   "precision": 0.88,
+   "recall": 0.786,
+   "f1": 0.83
+  },
+  "iou>=0.5": {
+   "precision": 0.76,
+   "recall": 0.679,
+   "f1": 0.717
+  }
+ },
+ "matched_mean_iou": 0.832,
+ "type_accuracy_among_matched": 0.955,
+ "family_accuracy_among_matched": 1.0,
+ "median_start_error_ms": 15.4,
+ "median_end_error_ms": 12.8,
+ "recall_by_type": {
+  "drag": 0.667,
+  "misplaced_pause": 1.0,
+  "missing_pause": 0.5,
+  "monotone": 1.0,
+  "mumble": 0.5,
+  "overlong_pause": 1.0,
+  "rush": 0.75,
+  "trail_off": 1.0,
+  "uptalk": 0.333,
+  "volume_collapse": 1.0
+ },
+ "recall_by_severity": {
+  "high (>=0.7)": 0.917,
+  "low (<0.4)": 0.0,
+  "mid (0.4-0.7)": 0.733
+ },
+ "ideal_recordings": {
+  "n": 1,
+  "false_regions_per_recording": 0.0,
+  "mean_score": 92.5
+ },
+ "score_validation": {
+  "mean_score_by_level": {
+   "0": 92.5,
+   "1": 90.9,
+   "2": 87.3,
+   "3": 75.0,
+   "4": 72.1,
+   "5": 49.1
+  },
+  "spearman_level_vs_score": -1.0,
+  "pairwise_ordering_accuracy": 1.0,
+  "category_attribution_accuracy": 0.9
+ },
+ "per_recording": [
+  {
+   "id": "C/L0_ideal",
+   "level": 0,
+   "kind": "ideal",
+   "overall": 92.5,
+   "n_gt": 0,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "C/L1_near_perfect",
+   "level": 1,
+   "kind": "ladder",
+   "overall": 90.9,
+   "n_gt": 1,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "C/L2_minor_slips",
+   "level": 2,
+   "kind": "ladder",
+   "overall": 87.3,
+   "n_gt": 2,
+   "n_pred": 1,
+   "pred_types": [
+    "rush"
+   ]
+  },
+  {
+   "id": "C/L3_mediocre",
+   "level": 3,
+   "kind": "ladder",
+   "overall": 75.0,
+   "n_gt": 3,
+   "n_pred": 3,
+   "pred_types": [
+    "overlong_pause",
+    "volume_collapse",
+    "rush"
+   ]
+  },
+  {
+   "id": "C/L4_poor",
+   "level": 4,
+   "kind": "ladder",
+   "overall": 72.1,
+   "n_gt": 5,
+   "n_pred": 5,
+   "pred_types": [
+    "drag",
+    "rush",
+    "volume_collapse",
+    "rush",
+    "trail_off"
+   ]
+  },
+  {
+   "id": "C/L5_botched",
+   "level": 5,
+   "kind": "ladder",
+   "overall": 49.1,
+   "n_gt": 7,
+   "n_pred": 7,
+   "pred_types": [
+    "mumble",
+    "overlong_pause",
+    "uptalk",
+    "volume_collapse",
+    "volume_collapse",
+    "monotone",
+    "misplaced_pause"
+   ]
+  },
+  {
+   "id": "C/S_drag_60",
+   "level": null,
+   "kind": "single",
+   "overall": 88.2,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "drag"
+   ]
+  },
+  {
+   "id": "C/S_misplaced_pause_60",
+   "level": null,
+   "kind": "single",
+   "overall": 85.2,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "misplaced_pause"
+   ]
+  },
+  {
+   "id": "C/S_missing_pause_60",
+   "level": null,
+   "kind": "single",
+   "overall": 93.2,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "missing_pause"
+   ]
+  },
+  {
+   "id": "C/S_monotone_60",
+   "level": null,
+   "kind": "single",
+   "overall": 83.4,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "monotone"
+   ]
+  },
+  {
+   "id": "C/S_mumble_60",
+   "level": null,
+   "kind": "single",
+   "overall": 92.8,
+   "n_gt": 1,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "C/S_overlong_pause_60",
+   "level": null,
+   "kind": "single",
+   "overall": 85.7,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "overlong_pause"
+   ]
+  },
+  {
+   "id": "C/S_rush_60",
+   "level": null,
+   "kind": "single",
+   "overall": 87.6,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "rush"
+   ]
+  },
+  {
+   "id": "C/S_trail_off_60",
+   "level": null,
+   "kind": "single",
+   "overall": 91.3,
+   "n_gt": 1,
+   "n_pred": 1,
+   "pred_types": [
+    "trail_off"
+   ]
+  },
+  {
+   "id": "C/S_uptalk_60",
+   "level": null,
+   "kind": "single",
+   "overall": 91.3,
+   "n_gt": 1,
+   "n_pred": 0,
+   "pred_types": []
+  },
+  {
+   "id": "C/S_volume_collapse_60",
+   "level": null,
+   "kind": "single",
+   "overall": 87.1,
+   "n_gt": 1,
+   "n_pred": 2,
+   "pred_types": [
+    "trail_off",
+    "volume_collapse"
+   ]
+  }
+ ],
+ "tolerance_used": {
+  "pace_sigma": 0.2,
+  "pause_sigma_abs": 0.12,
+  "pause_sigma_rel": 0.25,
+  "pitch_sigma": 0.25,
+  "terminal_sigma": 1.5,
+  "energy_sigma": 3.0,
+  "clarity_sigma": 3.0
+ }
+}

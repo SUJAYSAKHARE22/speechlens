@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpeechLens: delivery analysis</title>
+<style>
+:root{--paper:#eef1f5;--card:#fff;--ink:#14213d;--muted:#5b667a;--rule:#c9d1dc;--accent:#14213d;
+--pace:#c8372d;--pause:#2b59c3;--pitch:#2e8b57;--energy:#b57a00;--clarity:#7a4ca0;
+--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",sans-serif}
+@media(prefers-color-scheme:dark){:root{--paper:#0e1526;--card:#16203a;--ink:#e8edf6;--muted:#9aa7bd;--rule:#2a3552;--accent:#e8edf6;
+--pace:#ff6b5e;--pause:#6f97ff;--pitch:#4fcf8a;--energy:#f0b429;--clarity:#b78bde}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 var(--sans)}
+header{padding:20px 28px 14px;border-bottom:2px solid var(--ink)}
+h1{margin:0;font:600 28px var(--serif);letter-spacing:.2px}
+header p{margin:2px 0 0;color:var(--muted);max-width:70ch}
+main{display:grid;grid-template-columns:320px 1fr;gap:24px;padding:22px 28px;align-items:start}
+@media(max-width:920px){main{grid-template-columns:1fr}}
+h2{font:600 18px var(--serif);margin:0 0 8px}
+.panel{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:16px;margin-bottom:18px}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input[type=file],select,textarea{width:100%;font:inherit;color:inherit;background:transparent;border:1px solid var(--rule);border-radius:4px;padding:7px}
+textarea{min-height:70px;resize:vertical}
+button{font:inherit;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:9px 14px;border-radius:4px;margin-top:14px;width:100%}
+button:disabled{opacity:.55;cursor:wait}
+.chips{display:flex;flex-direction:column;gap:6px}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;padding:8px 10px;border:1px solid var(--rule);border-radius:4px;width:100%}
+.chip:hover,.chip:focus-visible{border-color:var(--ink)}
+.chip b{display:block}.chip small{color:var(--muted)}
+.note{color:var(--muted);font-size:13px}
+#err{color:var(--pace);margin-top:10px;font-weight:600}
+#warn{background:#fff4d6;color:#4a3800;border-left:4px solid var(--energy);padding:8px 12px;margin-bottom:14px;display:none}
+.scores{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+.big{font:600 64px/1 var(--serif)}.big small{display:block;font:13px var(--sans);color:var(--muted);margin-top:4px}
+.bar{display:grid;grid-template-columns:78px 1fr 40px;gap:8px;align-items:center;margin:5px 0}
+.track{height:10px;background:var(--rule);border-radius:2px;overflow:hidden}.fill{height:100%}
+audio{width:100%;margin:4px 0 10px}
+#plot{width:100%;height:600px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:4px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:baseline}
+.notes{display:flex;flex-direction:column;gap:12px}
+.fl{border-left:5px solid var(--c);padding:6px 0 6px 14px;cursor:pointer}
+.fl.on{background:color-mix(in srgb,var(--c) 10%,transparent)}
+.fl h3{margin:0;font:600 16px var(--serif)}
+.meta{color:var(--muted);font-size:13px;display:flex;gap:14px;flex-wrap:wrap}
+.fl p{margin:4px 0}.tip{font-style:italic}
+details{margin:4px 0;font-size:13px}code{display:block;white-space:pre-wrap;background:var(--paper);padding:8px;border-radius:4px;margin-top:4px}
+.tx{line-height:2.1;font-family:var(--serif);font-size:17px}
+.w{cursor:pointer;padding:1px 2px;border-radius:3px}.w:hover{outline:1px solid var(--ink)}
+.hint{display:none}.on-results .hint{display:block}
+#results{display:none}.on-results #results{display:block}
+</style>
+</head>
+<body>
+<header>
+<h1>SpeechLens</h1>
+<p>Upload a recording and its text. It is compared with a reference reading of the same words; every stretch where your delivery departs from it is marked on the timeline and explained with the numbers behind it.</p>
+</header>
+<main>
+<aside>
+<section class="panel"><h2>Try a sample</h2><div class="chips" id="samples"></div>
+<p class="note">Samples are simulated voices with known, injected flaws. Dashed brackets above the plot show where each flaw really is.</p></section>
+<section class="panel"><h2>Your recording</h2>
+<form id="form">
+<label for="file">Audio (wav, flac, mp3)</label><input id="file" type="file" accept="audio/*">
+<label for="ref">Reference reading</label><select id="ref"></select>
+<label for="tx">Transcript <span class="note">(blank = the reference's text)</span></label><textarea id="tx"></textarea>
+<label for="preset">Speech type</label><select id="preset"></select>
+<button id="go" type="submit">Analyze</button>
+</form><div id="err" role="alert"></div></section>
+</aside>
+<section id="out">
+<div class="panel" id="empty"><h2>Nothing analysed yet</h2><p class="note">Pick a sample on the left to see a worked example, or upload your own recording.</p></div>
+<div id="results">
+<div id="warn"></div>
+<div class="panel"><div class="scores"><div class="big" id="overall"></div><div id="cats"></div></div></div>
+<div class="panel"><h2>Timeline</h2><audio id="audio" controls></audio><div id="plot"></div>
+<div class="legend" id="legend"></div></div>
+<div class="panel"><h2>Judge's notes</h2><div class="notes" id="notes"></div></div>
+<div class="panel"><h2>Transcript</h2><p class="note">Shading marks words that depart from the reference; click a word to hear it.</p><div class="tx" id="tx-view"></div></div>
+</div>
+</section>
+</main>
+<script src="/static/plotly.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),FAM={pace:'--pace',pause:'--pause',pitch:'--pitch',energy:'--energy',clarity:'--clarity'};
+const CAT={pacing:'pace',pauses:'pause',pitch:'pitch',energy:'energy',clarity:'clarity'};
+const col=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const rgba=(h,a)=>{h=h.replace('#','');if(h.length==3)h=[...h].map(c=>c+c).join('');const n=parseInt(h,16);return `rgba(${n>>16},${n>>8&255},${n&255},${a})`};
+const api=async(u,o)=>{const r=await fetch(u,o);if(!r.ok){let m=r.statusText;try{m=(await r.json()).detail||m}catch{}throw new Error(typeof m=='string'?m:JSON.stringify(m))}return r.json()};
+const audio=$('#audio');let S={r:null,gt:[],active:-1,nShapes:0},samples=[];
+const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function busy(b,msg){$('#go').disabled=b;document.querySelectorAll('.chip').forEach(c=>c.disabled=b);$('#err').textContent=msg||'';if(b)$('#go').textContent='Analyzing... (first run takes a few seconds)';else $('#go').textContent='Analyze'}
+async function init(){
+ const [refs,sm,pr]=await Promise.all([api('/api/references'),api('/api/samples'),api('/api/presets')]);samples=sm;
+ $('#ref').innerHTML='<option value="">No reference (generic norms)</option>'+refs.map(r=>`<option value="${r.id}">${r.id} (${r.n_words} words)</option>`).join('');
+ if(refs.length)$('#ref').value=refs[0].id;
+ $('#preset').innerHTML=Object.keys(pr).map(p=>`<option>${p}</option>`).join('');
+ $('#samples').innerHTML=sm.map(s=>`<button class="chip" data-id="${s.id}"><b>${esc(s.title)}</b><small>${esc(s.description)}</small></button>`).join('');
+ document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>runSample(c.dataset.id));
+ $('#legend').innerHTML=Object.entries(FAM).map(([k,v])=>`<span><i class="sw" style="background:var(${v})"></i>${k}</span>`).join('');
+}
+async function runSample(id){
+ busy(true);const m=samples.find(s=>s.id==id);audio.src=`/api/samples/${id}/audio`;
+ try{show(await api('/api/analyze_sample',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sample_id:id,preset:$('#preset').value})}),m.ground_truth)}catch(e){busy(false,e.message);return}busy(false)}
+$('#form').onsubmit=async e=>{e.preventDefault();const f=$('#file').files[0];if(!f)return($('#err').textContent='Choose an audio file first.');
+ busy(true);const fd=new FormData();fd.append('audio',f);fd.append('transcript',$('#tx').value);fd.append('reference_id',$('#ref').value);fd.append('preset',$('#preset').value);
+ audio.src=URL.createObjectURL(f);
+ try{show(await api('/api/analyze',{method:'POST',body:fd}),[])}catch(er){busy(false,er.message);return}busy(false)};
+function seek(t,play){audio.currentTime=Math.max(0,t);if(play)audio.play()}
+function show(r,gt){
+ S={r,gt,active:-1};document.body.classList.add('on-results');$('#empty').style.display='none';
+ const w=$('#warn');w.style.display=r.warnings.length?'block':'none';w.innerHTML=r.warnings.map(esc).join('<br>');
+ $('#overall').innerHTML=`${Math.round(r.scores.overall)}<small>overall, ${r.scores.preset} weighting${r.reference_id?'':' (no reference)'}</small>`;
+ $('#cats').innerHTML=Object.entries(r.scores.categories).map(([k,v])=>`<div class="bar"><span>${k}</span><div class="track"><div class="fill" style="width:${v}%;background:var(${FAM[CAT[k]]})"></div></div><b>${Math.round(v)}</b></div>`).join('');
+ notes(r);words(r);plot(r,gt)}
+function notes(r){
+ $('#notes').innerHTML=r.regions.length?r.regions.map((g,i)=>`<div class="fl" data-i="${i}" style="--c:var(${FAM[g.family]})" tabindex="0">
+ <h3>${esc(g.headline)}</h3><div class="meta"><span>${g.start.toFixed(1)} to ${g.end.toFixed(1)} s</span><span>severity ${g.severity.toFixed(2)}</span><span>confidence ${g.confidence.toFixed(2)}</span><span>${g.family}</span></div>
+ <p>${esc(g.explanation)}</p><p class="tip">${esc(g.suggestion)}</p>
+ <details><summary>Show the math</summary><code>${esc(g.rationale)}</code></details></div>`).join(''):'<p class="note">No delivery flaws were flagged. The recording stays within the natural variation of the reference reading.</p>';
+ document.querySelectorAll('.fl').forEach(el=>{const go=()=>{const i=+el.dataset.i;highlight(i);seek(r.regions[i].start-.3,true)};el.onclick=go;el.onkeydown=e=>{if(e.key=='Enter')go()}})}
+function highlight(i){
+ document.querySelectorAll('.fl').forEach(e=>e.classList.toggle('on',+e.dataset.i==i));
+ const up={};S.r.regions.forEach((g,k)=>{up[`shapes[${k}].fillcolor`]=rgba(col(FAM[g.family]),k==i?.38:.16)});
+ Plotly.relayout('plot',up);S.active=i}
+function words(r){
+ $('#tx-view').innerHTML=r.words.map(w=>{const z=w.z,c=[['pace',Math.abs(z.pace)],['energy',Math.abs(z.energy)],['pitch',Math.max(-z.pitch,0)],['clarity',Math.max(-z.clarity,0)],['pause',Math.abs(z.pause)]].sort((a,b)=>b[1]-a[1])[0];
+  const a=c[1]>=2.5?.30:c[1]>=1.8?.14:0;return `<span class="w" data-t="${w.start}" style="${a?`background:${rgba(col(FAM[c[0]]),a)}`:''}" title="${c[0]} z=${c[1].toFixed(1)}">${esc(w.text)}</span>`}).join(' ');
+ document.querySelectorAll('.w').forEach(el=>el.onclick=()=>seek(+el.dataset.t-.1,true))}
+function plot(r,gt){
+ const s=r.series,ink=col('--ink'),mut=col('--muted'),rule=col('--rule'),ws=r.words;
+ const base={mode:'lines',connectgaps:false,hoverinfo:'x+y'};
+ const T=[{x:s.t,y:s.f0_st,xaxis:'x',yaxis:'y',name:'your pitch',line:{color:ink,width:1.4},...base}];
+ if(s.f0_st_ref)T.push({x:s.t,y:s.f0_st_ref,xaxis:'x',yaxis:'y',name:'reference',line:{color:mut,width:1.2,dash:'dot'},...base});
+ T.push({x:s.t,y:s.energy_db,xaxis:'x2',yaxis:'y2',name:'your energy',line:{color:ink,width:1.2},...base,showlegend:false});
+ if(s.energy_db_ref)T.push({x:s.t,y:s.energy_db_ref,xaxis:'x2',yaxis:'y2',name:'reference',line:{color:mut,width:1.1,dash:'dot'},...base,showlegend:false});
+ T.push({type:'bar',x:ws.map(w=>(w.start+w.end)/2),y:ws.map(w=>w.pace_log2),width:ws.map(w=>Math.max(w.end-w.start,.05)),xaxis:'x3',yaxis:'y3',text:ws.map(w=>w.text),hovertemplate:'%{text}: %{y:.2f}<extra></extra>',marker:{color:ws.map(w=>w.pace_log2>0?col('--pause'):col('--pace')),opacity:.75},showlegend:false});
+ T.push({type:'bar',x:ws.map(w=>w.end),y:ws.map(w=>w.pause_after),width:.07,xaxis:'x4',yaxis:'y4',marker:{color:ink},name:'pause',hovertemplate:'%{y:.2f} s<extra>pause</extra>',showlegend:false},
+  {type:'scatter',mode:'markers',x:ws.map(w=>w.end+.035),y:ws.map(w=>w.pause_expected),xaxis:'x4',yaxis:'y4',marker:{symbol:'diamond-open',color:col('--energy'),size:7},name:'expected pause',hovertemplate:'%{y:.2f} s<extra>expected</extra>',showlegend:false});
+ const shapes=r.regions.map(g=>({type:'rect',xref:'x',yref:'paper',x0:g.start,x1:g.end,y0:0,y1:1,line:{width:0},layer:'below',fillcolor:rgba(col(FAM[g.family]),.16)}));
+ const ann=[],gtc=col('--muted');
+ gt.forEach(g=>{shapes.push({type:'rect',xref:'x',yref:'paper',x0:g.start,x1:g.end,y0:1.01,y1:1.05,line:{color:gtc,width:1.5,dash:'dash'}});ann.push({x:(g.start+g.end)/2,y:1.05,xref:'x',yref:'paper',text:g.type.replace('_',' '),showarrow:false,yanchor:'bottom',font:{size:10,color:gtc}})});
+ S.nShapes=shapes.length;shapes.push({type:'line',xref:'x',yref:'paper',x0:0,x1:0,y0:0,y1:1,line:{color:col('--accent'),width:1.5}});
+ const ax=(d,t,extra={})=>({domain:d,title:{text:t,font:{size:11,color:mut}},gridcolor:rule,zeroline:false,tickfont:{size:10,color:mut},...extra});
+ const xa=(a)=>({anchor:a,matches:'x',showticklabels:a=='y4',gridcolor:rule,tickfont:{size:10,color:mut},title:a=='y4'?{text:'time (s)',font:{size:11,color:mut}}:undefined});
+ Plotly.react('plot',T,{margin:{l:56,r:12,t:gt.length?34:10,b:40},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'rgba(0,0,0,0)',font:{color:ink},showlegend:true,legend:{orientation:'h',y:-.1,font:{size:11}},
+  xaxis:{...xa('y'),matches:undefined,range:[0,r.duration]},xaxis2:xa('y2'),xaxis3:xa('y3'),xaxis4:xa('y4'),
+  yaxis:ax([.76,1],'pitch (semitones)'),yaxis2:ax([.52,.72],'energy (dB)'),yaxis3:ax([.28,.48],'pace (log2 vs ref)'),yaxis4:ax([0,.24],'pause (s)',{rangemode:'tozero'}),
+  shapes,annotations:ann,hovermode:'closest',bargap:0},{displayModeBar:false,responsive:true});
+ const pl=$('#plot');pl.removeAllListeners&&pl.removeAllListeners('plotly_click');pl.on('plotly_click',d=>{const x=d.points[0].x;if(typeof x=='number')seek(x,true)})}
+audio.addEventListener('timeupdate',()=>{if(!S.r)return;const t=audio.currentTime;Plotly.relayout('plot',{[`shapes[${S.nShapes}].x0`]:t,[`shapes[${S.nShapes}].x1`]:t})});
+init().catch(e=>$('#err').textContent='Could not load data: '+e.message);
+</script>
+</body>
+</html>

@@ -35,3 +35,11 @@ def test_load_resamples(tmp_path):
 def test_fade_edges_zero_at_ends_and_length_preserved():
     y = fade_edges(np.ones(1000), 50)
     assert len(y) == 1000 and y[0] == 0 and y[-1] == 0 and y[500] == 1
+
+
+def test_default_yaml_matches_builtin_defaults():
+    from pathlib import Path
+
+    from speechlens.config import Config, load_config
+
+    assert load_config(Path(__file__).parents[1] / "configs" / "default.yaml") == Config()
