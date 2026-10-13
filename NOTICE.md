@@ -8,7 +8,7 @@
 * **Praat / Parselmouth** (GPL-3.0 / GPLv3-compatible), librosa (ISC), SciPy/NumPy (BSD),
   FastAPI (MIT), Pydantic (MIT), soundfile (BSD).
 * **Gettysburg Address** (Abraham Lincoln, 1863): public domain.
-* **FFmpeg** (Abraham Lincoln, 1863): Used for audio processing and conversion in SpeechLens. FFmpeg is distributed under the GNU LGPL v2.1 or later, subject to the applicable build configuration and included components. Some configurations include GPL-licensed components.
+* **FFmpeg** : Used for audio processing and conversion in SpeechLens. FFmpeg is distributed under the GNU LGPL v2.1 or later, subject to the applicable build configuration and included components. Some configurations include GPL-licensed components.
 Official licensing information: https://ffmpeg.org/legal.html.
 
 The project's own licence is yours to choose; because Praat/Parselmouth is GPL, choose a
